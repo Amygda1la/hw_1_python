@@ -41,7 +41,7 @@ def encrypt_caesar(plaintext):
         "z": 99 - shift,
     }
     for ch in plaintext:
-        if caesar_dict.get(ch.lower(), 0):
+        if ch.isalpha():
             if ch.isupper():
                 ciphertext += chr(caesar_dict[ch.lower()] + shift).upper()
             else:
@@ -94,7 +94,7 @@ def decrypt_caesar(ciphertext):
         99: "z",
     }
     for ch in ciphertext:
-        if caesar_dict.get(ord(ch.lower()), 0):
+        if ch.isalpha():
             if ch.isupper():
                 plaintext += caesar_dict[ord(ch.lower())].upper()
             else:
